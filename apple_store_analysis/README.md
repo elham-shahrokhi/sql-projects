@@ -1,115 +1,82 @@
-Apple Store SQL Analysis Case Study
+Apple Store SQL Analysis Project
 
-This repository contains a step-by-step SQL analysis on the Apple Store Dataset, aiming to extract business insights regarding app types, pricing strategies, user ratings, and genre distributions.
+This project showcases an end-to-end exploratory data analysis (EDA) of the Apple Store dataset using PostgreSQL for data querying and Tableau for visualization.
 
-⸻
+Project Overview
 
-Dataset Source
+The goal of this analysis is to derive insights from Apple’s App Store data by writing efficient SQL queries to answer business-related questions. The project aims to showcase practical SQL skills with a focus on analytical thinking and visualization storytelling.
 
-Due to the large dataset size, it’s not included in this repository. You can download the dataset from:
+Dataset
 
-Apple Store Dataset (Kaggle)
+The dataset used in this project was sourced from Kaggle. It contains various details about mobile applications, such as app names, genres, pricing, user ratings, and more.
+	•	Apple Store Dataset on Kaggle
 
-⸻
+SQL Query Files
 
-Business Objective
+All SQL queries are organized in incremental steps:
 
-The purpose of this analysis is to simulate a scenario where we are data analysts at Apple, tasked with providing insights on:
-	•	Free vs Paid App Distributions
-	•	Genre-based Performance
-	•	High-Rated Apps Patterns
-	•	Size and Pricing Trends
+File Name	Purpose
+001_create_tables.sql	Creating the apple_store table with appropriate data types.
+002_column_name_data_type.sql	Verifying column names and their data types.
+003_min_max_price.sql	Finding the minimum, maximum, and average prices of apps.
+004_free_paid_apps.sql	Counting the number of Free vs Paid apps.
+005_price_type_apps.sql	Categorizing apps as Free, Cheap, Moderate, or Expensive.
+006_genre_apps_count.sql	Counting total apps in each genre.
+007_avg_user_rating.sql	Calculating the average user rating for Free vs Paid apps.
+008_min_max_size.sql	Finding minimum and maximum app size per genre.
+009_high_rated_apps.sql	Counting apps with user ratings above 4.5 by genre.
+010_avg_rating_rating_count.sql	Finding average user rating for apps with more than 1000 ratings.
+011_size_bytes_difference.sql	Identifying the genre with the largest size range between its apps.
+012_free_apps_percentage.sql	Calculating the percentage of free apps in each genre.
+013_avg_size_paid_apps.sql	Analyzing average app size for Paid apps by genre.
+014_high_volume_apps.sql	Calculating the percentage of free apps with size over 100MB per genre.
+015_avg_paid_price.sql	Calculating average price of Paid apps by genre.
+016_max_price_apps.sql	Identifying the highest-priced app per genre.
+017_paid_apps_percentage.sql	Calculating % of Paid apps costing more than $50 per genre.
+018_high_volume_paid_apps.sql	Analyzing large-sized Paid apps distribution.
+019_genre_with_free_apps_majority.sql	Finding genres where free apps make up more than 50% of total apps.
+020_highly_rated_genres.sql	Filtering genres with more than 50 apps and avg. rating > 4.0.
+021_top_price_genres.sql	Listing top 5 genres by average app price.
+022_free_apps_top_genres.sql	Top 5 genres with the highest number of free apps.
+023_high_rated_apps_top5.sql	Listing top 5 genres with highest avg. rating (minimum 50 apps).
+024_highest_rated_genres_percentage.sql	Filtering genres where >10% of apps have rating >4.5.
 
-Each query is designed to reflect a real business question that could inform product, marketing, or monetization strategies.
+Business Questions Explored
 
-⸻
+Throughout these queries, we aimed to answer key business questions like:
+	•	Which genres are dominating in terms of app volume?
+	•	How does pricing affect app size, rating, and distribution?
+	•	What percentage of apps in each genre are free?
+	•	Which genres have a higher density of highly-rated apps?
+	•	Are there specific genres where premium (high-priced) apps are more prevalent?
 
-Folder Structure
+Tableau Visualization
 
-├── 001_create_tables.sql
-├── 002_column_name_data_type.sql
-├── 003_min_max_price.sql
-├── 004_free_paid_apps.sql
-├── 005_price_type_apps.sql
-├── 006_genre_apps_count.sql
-├── 007_avg_user_rating.sql
-├── 008_min_max_size.sql
-├── 009_high_rated_apps.sql
-├── 010_avg_rating_rating_count.sql
-├── 011_size_bytes_difference.sql
-├── 012_free_apps_percentage.sql
-├── 013_avg_size_paid_apps.sql
-├── 014_high_volume_apps.sql
-├── 015_avg_paid_price.sql
-├── 016_max_price_apps.sql
-├── 017_paid_apps_above_50_percentage.sql
-├── 018_high_volume_paid_apps.sql
-├── 019_genres_majority_free_apps.sql
-├── 020_genres_high_rating_above_50apps.sql
-├── 021_top5_expensive_genres.sql
-├── 022_top5_free_apps_genres.sql
-├── 023_top5_high_rated_genres.sql
-├── 024_genres_high_rated_apps_percentage.sql
+An interactive dashboard was created in Tableau Public to visualize:
+	1.	Average User Ratings by Genre
+	2.	App Count by Genre
+	3.	Distribution of Paid & Free Apps (more charts will be added as project evolves)
 
+	•	Interactive Tableau Dashboard
 
-⸻
+Note on Dataset Access
 
-Sample Business Questions & Purpose:
-
-004_free_paid_apps.sql
-
-Business Purpose: Understanding the split between Free and Paid apps. This helps in monetization strategies.
-
-006_genre_apps_count.sql
-
-Business Purpose: Identify which genres have the most apps. Essential for genre-specific promotions.
-
-007_avg_user_rating.sql
-
-Business Purpose: Compare average user ratings between Free and Paid apps to analyze how pricing affects user satisfaction.
-
-012_free_apps_percentage.sql
-
-Business Purpose: Determine the proportion of Free apps in each genre. Useful for understanding user expectations in each genre.
-
-017_paid_apps_above_50_percentage.sql
-
-Business Purpose: Identify genres where a significant percentage of paid apps are priced above $50, which could reveal niches with premium offerings.
-
-018_high_volume_paid_apps.sql
-
-Business Purpose: Analyze paid apps that are large in size (above 500MB) to understand heavy resource-demanding apps.
-
-024_genres_high_rated_apps_percentage.sql
-
-Business Purpose: Find genres where more than 10% of apps have a user rating above 4.5. This could signal highly competitive or user-loved categories.
+Due to the dataset’s size, it is not included in this repository. You can download it directly from Kaggle Dataset Link and import it into your local PostgreSQL environment.
 
 ⸻
 
-Tableau Visualization Dashboard
-
-I have created a Tableau Public Dashboard to visualize key insights from the SQL analysis.
-
-🔗 Tableau Dashboard Link
-
-Current Visuals:
-	1.	App Count by Genre
-	2.	Average User Rating per Genre
-	3.	(More visualizations will be added as the analysis progresses)
+How to Run This Project
+	1.	Clone this repository.
+	2.	Download the dataset from Kaggle and import it into PostgreSQL.
+	3.	Run the SQL scripts in order from 001_create_tables.sql to 024_highest_rated_genres_percentage.sql.
+	4.	Explore visualizations using the Tableau Public dashboard link provided.
 
 ⸻
 
-How to Use This Repository
-	1.	Clone the repository.
-	2.	Run the SQL scripts in order from 001 to 024.
-	3.	Optional: Connect Tableau to the PostgreSQL DB and replicate the visualizations.
-
-⸻
-
-Next Steps
-	•	Add more advanced visualizations to Tableau.
-	•	Perform cohort analysis on app versions and update frequencies.
-	•	Analyze correlations between app size, price, and rating.
+Future Work
+	•	Expanding Tableau visualizations with more KPI-driven charts.
+	•	Automating queries into analytical reports.
+	•	Adding Python scripts for deeper data enrichment.
 
 ⸻
 
@@ -117,3 +84,8 @@ Author
 
 Elham Shahrokhi
 
+⸻
+
+License
+
+This project is open-source and available for anyone interested in SQL data analysis case studies.
