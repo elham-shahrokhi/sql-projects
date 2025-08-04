@@ -152,7 +152,7 @@ An interactive dashboard was created to visually represent the findings:
 
 5.	Visualization — Presenting actionable insights using Tableau.
 
-⸻
+
 
 ## How to Reproduce
 1.	Download the dataset from Kaggle Apple Store Dataset
